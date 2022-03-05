@@ -1,4 +1,4 @@
-# test_pypi_cli
+# [test_pypi_cli]
 A test python package with a simple CLI script that can read and jsonify raw text mainly aimed to test pypi releases.
 
 ## How to test the cli tool
@@ -27,3 +27,14 @@ References:
 setup_requires=['setuptools_scm'],
 include_package_data=True,
 ```
+
+## Steps to re-produce a similar package
+- create the package
+- create the setup.py
+- install it locally using:  pip install --editable . [locally install only]
+- build using wheel: python setup.py sdist bdist_wheel
+- pip install twine
+- upload using twine: twine upload --repository-url https://test.pypi.org/legacy/ dist/* [for test pypi]
+- upload using twine: twine upload dist/* [for pypi]
+- push it to test pypi
+- install and test
