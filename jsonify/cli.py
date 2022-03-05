@@ -2,12 +2,10 @@ import logging
 import argparse
 import json
 import shutil
-import sys
-import os
-from _xxsubinterpreters import destroy
-
 import pkg_resources
-from pathlib import Path
+from testjpkg import hij
+from pkg3 import pkg3
+
 
 log = logging.getLogger(__name__)
 
@@ -58,3 +56,6 @@ def main(args=None, catch=None):
         print(formatted)
     except Exception as e:
         print(f"jsonifying failed due to: {e}")
+
+    hij.sayhi()
+    pkg3.saybye()
