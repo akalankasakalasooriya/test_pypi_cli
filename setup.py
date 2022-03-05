@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='testjpkg',
-    version=1.2,
+    version='1.2.1',
     packages=find_packages(),
     setup_requires=['setuptools_scm'],
     include_package_data=True,
