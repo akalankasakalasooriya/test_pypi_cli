@@ -12,7 +12,7 @@ from pathlib import Path
 log = logging.getLogger(__name__)
 
 
-def main(args=None):
+def main(args=None, catch=None):
 
     parser = argparse.ArgumentParser(prog='jsonify', description='Command line interface for the jsonify package')
     parser.add_argument(
@@ -41,13 +41,20 @@ def main(args=None):
     init = args.init
 
     if init == "init":
-        path = pkg_resources.resource_filename(__name__, "initial_project")
-        shutil.copytree(src=path, dst="./test")
+        try:
+            path = pkg_resources.resource_filename(__name__, "initial_project")
+            shutil.copytree(src=path, dst="./test", ignore=shutil.ignore_patterns('__init__.py', '__pycache__'))
+            shutil.move("./test/test.py.bak", "./test/test.py")
+        except Exception as e:
+            print(f"init failed due to: {e}")
     else:
         print("no init dir created")
 
-    with open(file=file, encoding='utf8', mode="r") as f:
-        lines = f.readlines()
+    try:
+        with open(file=file, encoding='utf8', mode="r") as f:
+            lines = f.readlines()
 
-    formatted = json.dumps(json.loads(lines[0]), indent=2)
-    print(formatted)
+        formatted = json.dumps(json.loads(lines[0]), indent=2)
+        print(formatted)
+    except Exception as e:
+        print(f"jsonifying failed due to: {e}")
