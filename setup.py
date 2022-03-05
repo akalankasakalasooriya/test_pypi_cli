@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setup(
     name='testjpkg',
-    version='1.2.11rc1',
+    version='1.2.12rc2',
     packages=find_packages(),
-    setup_requires=['setuptools_scm'],
+    # setup_requires=['setuptools_scm'],
     include_package_data=True,
     package_data={
         # If any package contains *.txt or *.rst files, include them:
-        "": ["*.txt", "*.py", "*.png", "*.bak"],
+        "": ["*.txt", "*.png", "*.bak"],
     },
     description="Save contacts from your terminal",
     long_description=long_description,
@@ -28,5 +28,5 @@ setup(
     install_requires=[
         # 'rasa==2.8.8',
     ],
-    entry_points={'console_scripts': ['testj = jsonify.cli:main']}
+    entry_points={'console_scripts': ['testj = testjpkg.cli:main']}
 )

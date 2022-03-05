@@ -3,8 +3,8 @@ import argparse
 import json
 import shutil
 import pkg_resources
-from testjpkg import hij
-from pkg3 import pkg3
+from testjpkg.jsonify import hij
+from testjpkg.pkg3 import pkg3
 
 
 log = logging.getLogger(__name__)
