@@ -1,0 +1,8 @@
+- create package
+- create setup.py
+- install it locally using:  pip install --editable . [locally install only]
+- build using wheel: python setup.py sdist bdist_wheel
+- pip install twine
+- upload using twine: twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+- push it to test pypi
+- install and test
