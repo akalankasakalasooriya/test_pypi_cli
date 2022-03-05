@@ -1,12 +1,14 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name='testjpkg',
-    version=1.1,
-    packages=['jsonify', 'jsonify.initial_project'],
+    version=1.2,
+    packages=find_packages(),
+    setup_requires=['setuptools_scm'],
+    include_package_data=True,
     description="Save contacts from your terminal",
     long_description=long_description,
     long_description_content_type="text/markdown",
