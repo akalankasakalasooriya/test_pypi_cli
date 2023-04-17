@@ -38,3 +38,6 @@ include_package_data=True,
 - upload using twine: twine upload dist/* [for pypi]
 - push it to test pypi
 - install and test
+
+## To-do
+- [ ] Use GitHub Actions to release Python packages.
